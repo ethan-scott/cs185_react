@@ -15,7 +15,7 @@ class Images extends Component{
     }
     
     openLightBox(a){
-        var imgsrc = "../images/" + a + ".jpg";
+        var imgsrc = "./images/" + a + ".jpg";
         console.log(imgsrc);
         this.setState({
             "enableLB": true,
@@ -56,14 +56,6 @@ class Images extends Component{
         }
         return(
             <div>
-                <div id="nav">
-                    <u1>
-                        <li><a href="/index">Home</a></li>
-                        <li><a class="current" href="/images">Images</a></li>
-                        <li><a href="/videos">Videos</a></li>
-                        <li><a href="/links">Links</a></li>
-                    </u1>
-                </div>
                 <div id="LightBox" class="LBox">
                     <button onClick={this.closeLightBox}>Close LightBox</button>
                     <img id="LBimg" src={this.state.imgsrc}></img>

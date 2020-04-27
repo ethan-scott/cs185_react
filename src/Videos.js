@@ -30,7 +30,7 @@ class Videos extends Component{
                 </div>
                 <div id="LightBox1" class="LBoxV">
                     <video id="LBvid1" width="500" height = "380" controls>
-                        <source src="../images/vid1.mp4" type="video/MP4" />
+                        <source src="./images/vid1.mp4" type="video/MP4" />
                     </video>        
                 </div>
             </div>
@@ -44,7 +44,7 @@ class Videos extends Component{
                     </div>
                     <div id="LightBox3" class="LBoxV">
                         <video id="LBvid3" width="500" height = "380" controls>
-                            <source src="../images/vid3.mp4" type="video/MP4" />
+                            <source src="./images/vid3.mp4" type="video/MP4" />
                         </video>        
                     </div>
                 </div>
