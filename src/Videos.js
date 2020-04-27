@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
+import {TinyButton as ScrollUpButton} from "react-scroll-up-button";
 import './index.css';
 
 class Videos extends Component{
@@ -77,6 +78,9 @@ class Videos extends Component{
                     </div>
                     <br/>
                     <h3> Summer 2019, Videos </h3>
+                    <div>
+                        <ScrollUpButton />
+                    </div>
                     <div id="videoGrid" class="container">
                         <video onClick={() => this.openLightBox(1)} width="320" height="240" controls>
                             <source src="/images/vid1.mp4" type="video/MP4" />

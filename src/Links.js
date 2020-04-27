@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
+import {TinyButton as ScrollUpButton} from "react-scroll-up-button";
 import './index.css';
 
 class Links extends Component{
@@ -15,7 +16,9 @@ class Links extends Component{
                 </u1>
                 </div>
                 <br />
-                <button id="scrollTop" title="Go to top">Top</button>
+                <div>
+                    <ScrollUpButton />
+                </div>
                 <h3>External Links</h3>
                 <br />
                 <div id="project">

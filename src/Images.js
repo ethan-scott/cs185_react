@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
 import './index.css';
+import {TinyButton as ScrollUpButton} from "react-scroll-up-button";
 
 
 class Images extends Component{
@@ -44,6 +45,9 @@ class Images extends Component{
                 </div>
                 <br></br>
                 <h3 id="imgTitle"> Summer 2019, Images </h3>
+                <div>
+                    <ScrollUpButton />
+                </div>
                 <div id="pictureGrid" class="container">
                         <img id="river" src="/images/river.jpg" onClick={() => this.openLightBox('river')} />
                         <img id="whitney" src="/images/whitney.jpg" onClick={() => this.openLightBox('whitney')} />
