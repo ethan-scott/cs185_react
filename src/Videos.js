@@ -8,10 +8,10 @@ class Videos extends Component{
             <div>
                 <div id="nav">
                 <u1>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="images.html">Images</a></li>
-                    <li><a class="current" href="videos.html">Videos</a></li>
-                    <li><a href="links.html">Links</a></li>
+                    <li><a href="/index">Home</a></li>
+                    <li><a href="/images">Images</a></li>
+                    <li><a class="current" href="/videos">Videos</a></li>
+                    <li><a href="/links">Links</a></li>
                 </u1>
                 </div>
                 <br/>

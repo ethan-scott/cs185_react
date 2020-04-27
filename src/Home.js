@@ -3,24 +3,16 @@ import ReactDOM from "react-dom";
 import './index.css';
 
 class Home extends Component{
-    constructor(props){
-        super(props);
-        this.state={
-            "counter": 0,
-        }
-    }
-    update(){
-        this.setState({"counter": this.state.counter + 1});
-    }
+
     render(){
         return (
             <div>
             <div id="nav">
                 <u1>
-                    <li ><a class="current" href="index.html">Home</a></li>
-                    <li ><a href="images.html">Images</a></li>
-                    <li ><a href="videos.html">Videos</a></li>
-                    <li ><a href="links.html">Links</a></li>
+                    <li ><a class="current" href="/index">Home</a></li>
+                    <li ><a href="/images">Images</a></li>
+                    <li ><a href="/videos">Videos</a></li>
+                    <li ><a href="/links">Links</a></li>
                 </u1>
             </div>
             <br></br>
