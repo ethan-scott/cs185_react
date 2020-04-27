@@ -26,10 +26,10 @@ class Videos extends Component{
             <div>
                 <div id="nav">
                 <u1>
-                    <li><a href="/index">Home</a></li>
-                    <li><a href="/images">Images</a></li>
-                    <li><a class="current" href="/videos">Videos</a></li>
-                    <li><a href="/links">Links</a></li>
+                    <li><a href="/cs185_react/index">Home</a></li>
+                    <li><a href="/cs185_react/images">Images</a></li>
+                    <li><a class="current" href="/cs185_react/videos">Videos</a></li>
+                    <li><a href="/cs185_react/links">Links</a></li>
                 </u1>
                 </div>
                 <br/>

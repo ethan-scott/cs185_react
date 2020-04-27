@@ -10,11 +10,11 @@ function App() {
     <div>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={withRouter(Home)} />
-          <Route exact path="/index" component={withRouter(Home)} />
-          <Route exact path="/images" component={withRouter(Images)} />
-          <Route exact path="/videos" component={withRouter(Videos)} />
-          <Route exact path="/links" component={withRouter(Links)} />
+          <Route exact path="/cs185_react/" component={withRouter(Home)} />
+          <Route exact path="/cs185_react/index" component={withRouter(Home)} />
+          <Route exact path="/cs185_react/images" component={withRouter(Images)} />
+          <Route exact path="/cs185_react/videos" component={withRouter(Videos)} />
+          <Route exact path="/cs185_react/links" component={withRouter(Links)} />
         </Switch>
       </BrowserRouter>
     </div>
