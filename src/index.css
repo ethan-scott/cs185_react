@@ -119,3 +119,7 @@ li a:hover {
 .close button{
   transform: translate(40%, 200%);
 }
+
+.blank{
+  display: none;
+}
