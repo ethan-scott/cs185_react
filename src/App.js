@@ -1,24 +1,89 @@
-import React from 'react';
-import {BrowserRouter, Switch, Route, withRouter} from 'react-router-dom';
+import * as React from 'react';
+import {Component} from 'react';
+import {HashRouter, Switch, Route, withRouter, BrowserRouter} from 'react-router-dom';
 import './App.css';
 import Home from './Home.js';
 import Images from './Images.js';
 import Videos from './Videos.js';
 import Links from './Links.js';
-function App() {
-  return (
+
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+        "active": 1,
+    }
+    this.changeActive = this.changeActive.bind(this);
+}
+
+changeActive(a){
+    this.setState({
+        "active": a
+    })
+}
+
+render(){
+  if(this.state.active == 1){
+    return(
+      <div>
+      <div id="nav">
+        <u1>
+            <li><a class="current" onClick={() => this.changeActive(1)}>Home</a></li>
+            <li><a onClick={() => this.changeActive(2)}>Images</a></li>
+            <li><a onClick={() => this.changeActive(3)}>Videos</a></li>
+            <li><a onClick={() => this.changeActive(4)}>Links</a></li>
+        </u1>
+      </div>
+      <Home />
+      </div>
+    )
+  }
+  if(this.state.active == 2){
+    return(
     <div>
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={withRouter(Home)} />
-          <Route exact path="/index" component={withRouter(Home)} />
-          <Route exact path="/images" component={withRouter(Images)} />
-          <Route exact path="/videos" component={withRouter(Videos)} />
-          <Route exact path="/links" component={withRouter(Links)} />
-        </Switch>
-      </BrowserRouter>
+    <div id="nav">
+      <u1>
+          <li><a onClick={() => this.changeActive(1)}>Home</a></li>
+          <li><a class="current" onClick={() => this.changeActive(2)}>Images</a></li>
+          <li><a onClick={() => this.changeActive(3)}>Videos</a></li>
+          <li><a onClick={() => this.changeActive(4)}>Links</a></li>
+      </u1>
+    </div>
+    <Images />
     </div>
     )
+  }
+  if(this.state.active == 3){
+    return(
+    <div>
+    <div id="nav">
+      <u1>
+          <li><a onClick={() => this.changeActive(1)}>Home</a></li>
+          <li><a onClick={() => this.changeActive(2)}>Images</a></li>
+          <li><a class="current" onClick={() => this.changeActive(3)}>Videos</a></li>
+          <li><a onClick={() => this.changeActive(4)}>Links</a></li>
+      </u1>
+    </div>
+    <Videos />
+    </div>
+    )
+  }
+  if(this.state.active == 4){
+    return(
+    <div>
+    <div id="nav">
+      <u1>
+          <li><a onClick={() => this.changeActive(1)}>Home</a></li>
+          <li><a onClick={() => this.changeActive(2)}>Images</a></li>
+          <li><a onClick={() => this.changeActive(3)}>Videos</a></li>
+          <li><a class="current" onClick={() => this.changeActive(4)}>Links</a></li>
+      </u1>
+    </div>
+    <Links />
+    </div>
+    )
+  }
+}
 }
 
 export default App;
