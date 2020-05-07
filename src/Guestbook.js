@@ -12,7 +12,8 @@ class Guestbook extends Component{
                     "message":"",
                     "email": "",
                     "visible": false},
-            "allposts":[]
+            "allposts":[],
+            "readFirebase": true
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleVisible = this.handleVisible.bind(this);
@@ -50,15 +51,20 @@ class Guestbook extends Component{
             this.errorMessage();
         }
         else{
-            var posts = [];
-            var doc = firebase.firestore().collection('posts').doc('posts');
-            doc.get().then(snapshot =>{
-                posts = snapshot.get("posts");
-                posts.push(this.state.post);
-                doc.set({"posts":posts}, {merge:true});
-                console.log("done writing");
-                this.retrievePosts();  
-            })
+            if(this.state.post.visible){
+                var posts = [];
+                var doc = firebase.firestore().collection('posts').doc('posts');
+                doc.get().then(snapshot =>{
+                    posts = snapshot.get("posts");
+                    posts.push(this.state.post);
+                    doc.set({"posts":posts}, {merge:true});
+                    console.log("done writing");
+                    this.retrievePosts();  
+                })
+            }
+            var allposts = this.state.allposts;
+            allposts.push(this.state.post);
+            this.setState({"allposts": allposts});
         }
     }
 
@@ -73,10 +79,14 @@ class Guestbook extends Component{
             var allposts = snapshot.get("posts");
             this.setState({"allposts": allposts})
         })
-        //console.log(this.state.allposts[0]);
     }
 
     render(){
+        if(this.state.readFirebase){
+            // only read from firebase once
+            this.retrievePosts();
+            this.setState({"readFirebase": false})
+        }
         return(
             <div>
                 <br/>
