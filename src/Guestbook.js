@@ -104,25 +104,26 @@ class Guestbook extends Component{
                 <br/>
                 <div class="postForm">
                     <form>
-                        <label>Name *</label>
+                        <div class="label1">Name *</div>
                         <input type="text" name="name" onChange={this.handleChange} />
-                        <br/>
+                        <br/><br/>
 
-                        <label>Description </label>
+                        <div class="label1">Description </div>
                         <input type="text" name="description" onChange={this.handleChange} />
-                        <br/>
+                        <br/><br/>
 
-                        <label>Message *</label>
+                        <div class="label1">Message *</div>
                         <input type="text" name="message" onChange={this.handleChange} />
-                        <br/>
+                        <br/><br/>
 
-                        <label>Email</label>
+                        <div class="label1">Email</div>
                         <input type="text" name="email" onChange={this.handleChange} />
-                        <br/>
+                        <br/><br/>
 
-                        <label>Visible</label>
+                        <div class="label1">Visible</div>
                         <input type="checkbox" ref="check1" onChange={this.handleVisible} />
                     </form>
+                    <br/>
                     <button onClick={this.handleSubmit}>Submit</button>
                     <p class="errorMessage">{this.state.error}</p>
                 </div>
