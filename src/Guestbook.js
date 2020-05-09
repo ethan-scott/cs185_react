@@ -11,14 +11,15 @@ class Guestbook extends Component{
                     "description": "",
                     "message":"",
                     "email": "",
+                    "date": "",
                     "visible": false},
             "allposts":[],
-            "readFirebase": true
+            "readFirebase": true,
+            "error": " "
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleVisible = this.handleVisible.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.errorMessage = this.errorMessage.bind(this);
         this.retrievePosts = this.retrievePosts.bind(this);
     }
 
@@ -37,39 +38,43 @@ class Guestbook extends Component{
         this.setState({ "post": post})
     }
 
-    async handleSubmit(){
+    handleSubmit(){
+        var today = new Date();
+        var month = today.getMonth() + 1;
+        var date = month + "/" + today.getDate();
+        var post = this.state.post;
+        post.date = date;
+        this.setState({"post": post})
+
         var namelength = this.state.post.name.length;
         var desclength = this.state.post.description.length;
         var messlength = this.state.post.message.length;
         if(namelength < 6 || namelength > 19){
-            this.errorMessage();
+            this.setState({"error": "Name must be 6 to 19 characters."})
         }
         else if(desclength > 99){
-            this.errorMessage();
+            this.setState({"error": "Description must be less than 100 characters."})
         }
         else if(messlength < 16 || messlength > 500){
-            this.errorMessage();
+            this.setState({"error": "Message must be 16 to 500 characters."})
         }
         else{
+            this.setState({"error": " "})
             if(this.state.post.visible){
                 var posts = [];
                 var doc = firebase.firestore().collection('posts').doc('posts');
                 doc.get().then(snapshot =>{
                     posts = snapshot.get("posts");
                     posts.push(this.state.post);
-                    doc.set({"posts":posts}, {merge:true});
-                    console.log("done writing");
-                    this.retrievePosts();  
+                    doc.set({"posts":posts}, {merge:true});  
                 })
             }
-            var allposts = this.state.allposts;
-            allposts.push(this.state.post);
-            this.setState({"allposts": allposts});
-        }
-    }
 
-    errorMessage(){
-        console.log("error message");
+            var allposts = this.state.allposts;
+            allposts.unshift(this.state.post);
+            this.setState({"allposts": allposts});
+            console.log(this.state.allposts[this.state.allposts.length - 1]);
+        }
     }
 
     retrievePosts(){
@@ -77,7 +82,14 @@ class Guestbook extends Component{
         var doc = firebase.firestore().collection('posts').doc('posts');
         doc.get().then(snapshot =>{
             var allposts = snapshot.get("posts");
-            this.setState({"allposts": allposts})
+            // remove all "not visible" posts
+            for(var i = allposts.length - 1; i >= 0; i--){
+                if(allposts[i].visible == false){
+                    allposts.splice(i, 1);
+                }
+            }
+            allposts = allposts.reverse()
+            this.setState({"allposts": allposts});
         })
     }
 
@@ -88,15 +100,15 @@ class Guestbook extends Component{
             this.setState({"readFirebase": false})
         }
         return(
-            <div>
+            <div class="guestbook">
                 <br/>
-                <div id="inputForm">
+                <div class="postForm">
                     <form>
                         <label>Name *</label>
                         <input type="text" name="name" onChange={this.handleChange} />
                         <br/>
 
-                        <label>Description</label>
+                        <label>Description </label>
                         <input type="text" name="description" onChange={this.handleChange} />
                         <br/>
 
@@ -111,7 +123,19 @@ class Guestbook extends Component{
                         <label>Visible</label>
                         <input type="checkbox" ref="check1" onChange={this.handleVisible} />
                     </form>
-                    <button onClick={this.retrievePosts}>Submit</button>
+                    <button onClick={this.handleSubmit}>Submit</button>
+                    <p class="errorMessage">{this.state.error}</p>
+                </div>
+                <div class="displayPosts">
+                    {this.state.allposts.map((post) =>(
+                        <div class="post">
+                            <p>{post.name} &emsp; &emsp;{post.date} </p>
+                            <p>{post.description}</p>
+                            <p>{post.message}</p>
+                            <p>{post.email}</p>
+                            <br/>
+                        </div>
+                    ))}
                 </div>
             </div>
         )
