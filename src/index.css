@@ -123,3 +123,38 @@ li a:hover {
 .blank{
   display: none;
 }
+
+.postForm{
+  background:#d3d3d3;
+  width: 40%;
+}
+
+.post{
+  background: #d3d3d3
+}
+
+.postForm{
+  background: #d3d3d3;
+  float: left;
+  width: 47%;
+}
+
+.displayPosts{
+  border: 1px solid black;
+  float: right;
+  width: 47%;
+  height: 80vh;
+  overflow-y: scroll;
+}
+
+label{
+  width: 25%;
+  text-align: center;
+}
+input{
+  width: 70%;
+}
+
+.errorMessage{
+  color: red;
+}
