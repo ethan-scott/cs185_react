@@ -6,6 +6,7 @@ import Home from './Home.js';
 import Images from './Images.js';
 import Videos from './Videos.js';
 import Links from './Links.js';
+import Movies from './Movies.js';
 import Guestbook from './Guestbook.js';
 
 class App extends Component {
@@ -34,6 +35,7 @@ render(){
             <li><a onClick={() => this.changeActive(3)}>Videos</a></li>
             <li><a onClick={() => this.changeActive(4)}>Links</a></li>
             <li><a onClick={() => this.changeActive(5)}>Guestbook</a></li>
+            <li><a onClick={() => this.changeActive(6)}>Movies</a></li>
         </u1>
       </div>
       <Home />
@@ -50,6 +52,7 @@ render(){
           <li><a onClick={() => this.changeActive(3)}>Videos</a></li>
           <li><a onClick={() => this.changeActive(4)}>Links</a></li>
           <li><a onClick={() => this.changeActive(5)}>Guestbook</a></li>
+          <li><a onClick={() => this.changeActive(6)}>Movies</a></li>
       </u1>
     </div>
     <Images />
@@ -66,6 +69,7 @@ render(){
           <li><a class="current" onClick={() => this.changeActive(3)}>Videos</a></li>
           <li><a onClick={() => this.changeActive(4)}>Links</a></li>
           <li><a onClick={() => this.changeActive(5)}>Guestbook</a></li>
+          <li><a onClick={() => this.changeActive(6)}>Movies</a></li>
       </u1>
     </div>
     <Videos />
@@ -82,6 +86,7 @@ render(){
           <li><a onClick={() => this.changeActive(3)}>Videos</a></li>
           <li><a class="current" onClick={() => this.changeActive(4)}>Links</a></li>
           <li><a onClick={() => this.changeActive(5)}>Guestbook</a></li>
+          <li><a onClick={() => this.changeActive(6)}>Movies</a></li>
       </u1>
     </div>
     <Links />
@@ -98,9 +103,27 @@ render(){
           <li><a onClick={() => this.changeActive(3)}>Videos</a></li>
           <li><a onClick={() => this.changeActive(4)}>Links</a></li>
           <li><a class="current" onClick={() => this.changeActive(5)}>Guestbook</a></li>
+          <li><a onClick={() => this.changeActive(6)}>Movies</a></li>
       </u1>
     </div>
     <Guestbook />
+    </div>
+    )
+  }
+  if(this.state.active == 6){
+    return(
+    <div>
+    <div id="nav">
+      <u1>
+          <li><a onClick={() => this.changeActive(1)}>Home</a></li>
+          <li><a onClick={() => this.changeActive(2)}>Images</a></li>
+          <li><a onClick={() => this.changeActive(3)}>Videos</a></li>
+          <li><a onClick={() => this.changeActive(4)}>Links</a></li>
+          <li><a onClick={() => this.changeActive(5)}>Guestbook</a></li>
+          <li><a class="current" onClick={() => this.changeActive(6)}>Movies</a></li>
+      </u1>
+    </div>
+    <Movies />
     </div>
     )
   }

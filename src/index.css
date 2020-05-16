@@ -158,3 +158,21 @@ input{
 .errorMessage{
   color: red;
 }
+
+.MovieGrid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+  padding: 5 px;
+}
+
+.MovieGrid img{
+  border: 10px solid white;
+  max-height: 90%;
+  max-width: 90%;
+  vertical-align: middle;
+  margin: auto;
+}
+
+.MovieGrid img:hover{
+  opacity: 0.4;
+}
