@@ -23,7 +23,7 @@ class Movies extends Component{
         const axios = require('axios');
         var IDs = this.state.IDs;
         for(var i = 0; i < IDs.length; i++){
-            axios.get('http://www.omdbapi.com/?i=' + IDs[i] +'&apiKey=3d413702').then((response)=> 
+            axios.get('https://www.omdbapi.com/?i=' + IDs[i] +'&apiKey=3d413702').then((response)=> 
             {var movie = {"poster":"", "title":"", "director":"", "rating":""}
              var r = response;
              movie.poster = r.data.Poster;
