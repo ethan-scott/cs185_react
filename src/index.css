@@ -158,3 +158,55 @@ input{
 .errorMessage{
   color: red;
 }
+
+.MovieGrid, .MovieGridOpaque{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+}
+
+.MovieGridOpaque{
+  overflow: hidden;
+  filter: brightness(50%);
+}
+
+.MovieGrid img, .MovieGridOpaque img{
+  border: 10px solid white;
+  max-height: 90%;
+  max-width: 90%;
+  vertical-align: middle;
+  margin: auto;
+}
+
+.MovieGrid img:hover{
+  opacity: 0.4;
+}
+
+.MovieLB{
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  width: 80vh;
+  height: 70vh; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.MovieLB img{
+  overflow: hidden;
+  margin-left: 5px;
+  width: 50%;
+}
+
+.MovieDescription{
+  overflow: hidden;
+  white-space: nowrap;
+  width: 50%;
+}
+
+.MovieDescription button{
+  margin-left: 18px;
+}
