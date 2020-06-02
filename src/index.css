@@ -210,3 +210,7 @@ input{
 .MovieDescription button{
   margin-left: 18px;
 }
+
+.MovieSearch input{
+  width: 30%;
+}
