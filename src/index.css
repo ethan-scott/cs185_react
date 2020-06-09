@@ -214,3 +214,8 @@ input{
 .MovieSearch input{
   width: 30%;
 }
+
+#mysvg{
+  width: 1920;
+  height: 1080
+}
